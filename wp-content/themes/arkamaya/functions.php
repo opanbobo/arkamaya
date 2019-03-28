@@ -274,3 +274,44 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+add_action( 'wp_ajax_blog_load_more', 'blog_load_more' );
+function blog_load_more(){
+	$pages = absint( sanitize_text_field( $_POST['pages'] ) );
+	$page = absint( sanitize_text_field( $_POST['page'] ) );
+	$posts = absint( sanitize_text_field( $_POST['posts'] ) );
+
+	$page += 1;
+
+	$query = new WP_Query( array(
+		'category_name' => 'blog',
+		'paged' => $page,
+		'posts_per_page' => 6
+	) );
+
+	$html = '';
+
+	if( $query->have_posts() ) :
+		while( $query->have_posts() ) : $query->the_post();
+			$html .= '<div class="custom-width">
+                            <div class="block">
+                                <div class="img"><a href="' . get_the_permalink() . '">' . get_the_post_thumbnail('', array( 'class' => 'img-fluid' ) ) . '</a></div>
+                                <div class="date">' . get_the_date( 'j F Y' ) . '</div>
+                                <div class="title-post"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></div>
+                                <div class="desc">' . get_the_excerpt() . '</div>
+                                <div class="more"><a href="' . get_the_permalink() . '">Read More <img src="' . get_bloginfo( 'template_url' ) . '/img/arrow-more.png" alt="" class="img-fluid"></a></div>
+                            </div>
+                        </div>';
+		endwhile;
+	endif;
+
+	$return = array(
+		'status' => 'success',
+		'page' => $page,
+		'pages' => $query->max_num_pages,
+		'posts' => $query->post_count,
+		'html' => $html
+	);
+
+	echo json_encode( $return );
+	die();
+}

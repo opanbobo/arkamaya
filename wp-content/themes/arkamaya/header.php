@@ -29,7 +29,9 @@
 	<script src="<?php bloginfo('template_url');?>/js/slick.min.js"></script>
 	<script src="<?php bloginfo('template_url');?>/js/jquery.fancybox.min.js"></script>
 	<script src="<?php bloginfo('template_url');?>/js/main.js"></script>
-
+	<script type="text/javascript">
+		var ajaxurl = '<?php echo admin_url( 'admin-ajax.php' ); ?>';
+	</script>
 	<?php wp_head(); ?>
 </head>
 
