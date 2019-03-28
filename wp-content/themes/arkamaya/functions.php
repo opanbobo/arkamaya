@@ -315,3 +315,107 @@ function blog_load_more(){
 	echo json_encode( $return );
 	die();
 }
+
+add_action( 'wp_ajax_shortcourse_load_more', 'shortcourse_load_more' );
+function shortcourse_load_more(){
+	$pages = absint( sanitize_text_field( $_POST['pages'] ) );
+	$page = absint( sanitize_text_field( $_POST['page'] ) );
+	$posts = absint( sanitize_text_field( $_POST['posts'] ) );
+	$cat_name = sanitize_text_field( $_POST['cat_name'] );
+
+	$page += 1;
+
+	$args = array(
+		'post_type' => 'shortcourse', 
+		'paged' => $page,
+		'posts_per_page' => 6
+	);
+
+	if( $cat_name ){
+        $args['category_name'] = $cat_name;
+    }
+
+	$query = new WP_Query( $args );
+
+	$html = '';
+
+	if( $query->have_posts() ) :
+		while( $query->have_posts() ) : $query->the_post();
+			$html .= '<div class="col-md-4 col-12">
+                            <div class="block" data-fancybox data-src="#myModal-1">
+                                <div class="img">' . get_the_post_thumbnail( '', array( 'class' => 'img-fluid' ) ) . '</div>
+                                <div class="date">' . get_the_date( 'j F Y' ) . '</div>
+                                <div class="name">' . get_the_title() . '</div>
+                                <div class="desc">' . get_the_excerpt() . '</div>
+                                <div class="readmore">Read More <img src="' . get_bloginfo( 'template_url' ) . '/img/arrow-more.png" alt="" class="img-fluid"></div>
+                            </div>
+                        </div>';
+		endwhile;
+	endif;
+
+	$return = array(
+		'status' => 'success',
+		'page' => $page,
+		'pages' => $query->max_num_pages,
+		'posts' => $query->post_count,
+		'cat_name' => $cat_name,
+		'html' => $html
+	);
+
+	echo json_encode( $return );
+	die();
+}
+
+add_action( 'wp_ajax_shortcourse_filter_category', 'shortcourse_filter_category' );
+function shortcourse_filter_category(){
+	$cat_name = sanitize_text_field( $_POST['cat_name'] );
+
+	$args = array(
+		'post_type' => 'shortcourse', 
+		'posts_per_page' => 6
+	);
+
+	if( $cat_name != 'all' ){
+        $args['category_name'] = $cat_name;
+    }else{
+    	$cat_name = '';
+    }
+
+	$query = new WP_Query( $args );
+
+	$html = '';
+
+	if( $query->have_posts() ) :
+		while( $query->have_posts() ) : $query->the_post();
+			$html .= '<div class="col-md-4 col-12">
+                            <div class="block" data-fancybox data-src="#myModal-1">
+                                <div class="img">' . get_the_post_thumbnail( '', array( 'class' => 'img-fluid' ) ) . '</div>
+                                <div class="date">' . get_the_date( 'j F Y' ) . '</div>
+                                <div class="name">' . get_the_title() . '</div>
+                                <div class="desc">' . get_the_excerpt() . '</div>
+                                <div class="readmore">Read More <img src="' . get_bloginfo( 'template_url' ) . '/img/arrow-more.png" alt="" class="img-fluid"></div>
+                            </div>
+                        </div>';
+		endwhile;
+	endif;
+
+	$return = array(
+		'status' => 'success',
+		'page' => 1,
+		'pages' => $query->max_num_pages,
+		'posts' => $query->post_count,
+		'cat_name' => $cat_name,
+		'html' => $html
+	);
+
+	echo json_encode( $return );
+	die();
+}
+
+add_action( 'init', 'audisiku_insert_rewrite_rules', 0 );
+function audisiku_insert_rewrite_rules(){
+	$page_short_course = get_page_by_path( 'short-course' );
+
+	add_rewrite_rule( 'short-course/category/([^/]+)/?$', 'index.php?page_id=' . $page_short_course->ID . '&category_name=$matches[1]', 'top' );
+	add_rewrite_rule( 'short-course/category/([^/]+)/page/([^/]+)/?$', 'index.php?page_id=' . $page_short_course->ID . '&category_name=$matches[1]&is_paged=true&paged=$matches[2]', 'top' );
+}

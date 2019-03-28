@@ -15,13 +15,28 @@
  /* Template Name: Short Courses Template */
 
 get_header();
+
+$page = get_query_var( 'paged' ); 
+$pagenow = $page ? $page : 1;
+
+$cat_name = get_query_var( 'category_name' );
 ?>
 
 <?php
-    $args = array( 'post_type' => 'shortcourse');
-    $loop = new WP_Query( $args );?>
+    $args = array( 
+        'post_type' => 'shortcourse', 
+        'paged' => $pagenow,
+        'posts_per_page' => 6, 
+    );
 
-    
+    if( $cat_name ){
+        $args['category_name'] = $cat_name;
+    }
+
+
+    $loop = new WP_Query( $args );
+
+    ?>
 
     <div id="primary" class="content-area bg-top bg-shortcourse">
         <main id="main" class="site-main">
@@ -32,18 +47,34 @@ get_header();
             </div>
             <div class="filter-category-wrapper">
                 <div class="container">
-                    <div class="filter">
+                    <div class="filter" id="category-filter">
                         <ul>
-                            <li class="selected"><a href="#">All</a></li>
-                            <li><a href="#">Baking</a></li>
-                            <li><a href="#">Cooking</a></li>
+                            <li<?php echo ( empty( $cat_name ) ? ' class="selected"' : '' ); ?>><a href="<?php echo get_permalink(); ?>" data-cat="all">All</a></li>
+                            <?php
+                            $parent_cat = get_category_by_slug( 'shortcourse' );
+
+                            $terms = get_terms( 'category', array(
+                                'hide_empty' => false,
+                                'child_of' => $parent_cat->term_id
+                            ) );
+
+                            if( $terms ){
+                                foreach( $terms as $term ){
+                                    if( $term->slug == $cat_name ){
+                                        echo '<li class="selected"><a href="' . get_permalink() . 'category/' . $term->slug . '" data-cat="' . $term->slug . '">' . $term->name . '</a></li>';
+                                    }else{
+                                        echo '<li><a href="' . get_permalink() . 'category/' . $term->slug . '" data-cat="' . $term->slug . '">' . $term->name . '</a></li>';
+                                    }
+                                }
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="column-post-wrapper">
                 <div class="container">
-                    <div class="row">
+                    <div class="row" id="shortcourse-wrapper">
                        <?php  while ( $loop->have_posts() ) : $loop->the_post();?>
                         <div class="col-md-4 col-12">
                             <div class="block" data-fancybox data-src="#myModal-1">
@@ -57,12 +88,18 @@ get_header();
                         <?php endwhile;?>
                     </div>
                     <div class="row">
-                        <div class="more"><a href="#">show more</a></div>
+                        <div class="more"><a href="#" id="load-more">show more</a></div>
+                        <input type="hidden" name="posts" id="posts" value="<?php echo $loop->post_count; ?>" />
+                        <input type="hidden" name="pages" id="pages" value="<?php echo $loop->max_num_pages; ?>" />
+                        <input type="hidden" name="page" id="pagenow" value="<?php echo $pagenow; ?>" />
+                        <input type="hidden" name="page" id="cat_name" value="<?php echo $cat_name; ?>" />
                     </div>
                 </div>
             </div>
         </main><!-- #main -->
     </div><!-- #primary -->
+
+    
 
 <?php  while ( $loop->have_posts() ) : $loop->the_post();?>
 <!-- The Modal -->
@@ -91,6 +128,107 @@ get_header();
   </div>
 </div>
 <?php endwhile;?>
+
+<?php wp_reset_query(); wp_reset_postdata(); ?>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+        $('#load-more').click(function(){
+            $posts = $('#posts').val();
+            $pages = $('#pages').val();
+            $page = $('#pagenow').val();
+            $cat_name = $('#cat_name').val();
+
+            if($page >= $pages){
+                $('#load-more').hide();
+                
+                return false;  
+            } 
+
+            $.ajax({
+                url: ajaxurl,
+                data: {
+                    'action' : 'shortcourse_load_more',
+                    'page' : $page,
+                    'pages' : $pages,
+                    'posts' : $posts,
+                    'cat_name' : $cat_name
+                },
+                type: 'POST',
+                dataType : 'json',
+                beforeSend : function(request, settings){
+                    
+                },
+                success : function( response ) {
+                    $('#posts').val(response.posts);
+                    $('#pages').val(response.pages);
+                    $('#pagenow').val(response.page);
+                    $('#cat_name').val(response.cat_name);
+
+                    $('#shortcourse-wrapper').append(response.html); 
+
+                    if(response.page >= response.pages){
+                        $('#load-more').hide();
+                    }
+
+                    if(history.pushState) {
+                        if($cat_name == ''){
+                            window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>page/" + response.page);
+                        }else{
+                            window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>category/" + response.cat_name + "/page/" + response.page);
+                        }
+                        
+                    }
+                }
+            });
+
+            return false;
+        });
+
+        $('#category-filter a').click(function(){
+            $cat = $(this).data('cat');
+            $this = $(this);
+            $parent = $this.parents('li');
+
+            $.ajax({
+                url: ajaxurl,
+                data: {
+                    'action' : 'shortcourse_filter_category',
+                    'cat_name' : $cat
+                },
+                type: 'POST',
+                dataType : 'json',
+                beforeSend : function(request, settings){
+                    
+                },
+                success : function( response ) {
+                    $('#posts').val(response.posts);
+                    $('#pages').val(response.pages);
+                    $('#pagenow').val(response.page);
+                    $('#cat_name').val(response.cat_name);
+
+                    $('#shortcourse-wrapper').html(response.html); 
+
+                    $('#load-more').show();
+                    
+                    $('#category-filter li').removeClass('selected');
+                    $parent.addClass('selected');
+
+                    if(history.pushState) {
+                        if(response.cat_name == ''){
+                            window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>");
+                        }else{
+                            window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>category/" + response.cat_name);
+                        }
+                        
+                    }
+                }
+            });
+
+            return false;
+        });
+    });
+    </script>
 
 <?php
 get_sidebar();
