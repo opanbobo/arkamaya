@@ -110,9 +110,9 @@ $pagenow = $page ? $page : 1;
                         $('#load-more').hide();
                     }
 
-                    if(history.pushState) {
-                        window.history.pushState("object or string", "Title", "<?php echo get_permalink() . 'page/'; ?>" + response.page);
-                    }
+                    // if(history.pushState) {
+                    //     window.history.pushState("object or string", "Title", "<?php echo get_permalink() . 'page/'; ?>" + response.page);
+                    // }
                 }
             });
 

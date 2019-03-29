@@ -23,6 +23,7 @@
 	<link href="<?php bloginfo('template_url');?>/css/slick.css" rel="stylesheet">
 	<link href="<?php bloginfo('template_url');?>/css/jquery.fancybox.min.css" rel="stylesheet">
 	<link href="<?php bloginfo('template_url');?>/css/main.css" rel="stylesheet">
+	<link href="<?php bloginfo('template_url');?>/css/custom.css" rel="stylesheet">
 
 	<script src="<?php bloginfo('template_url');?>/js/jquery-3.3.1.min.js"></script>
 	<script src="<?php bloginfo('template_url');?>/js/bootstrap.min.js"></script>

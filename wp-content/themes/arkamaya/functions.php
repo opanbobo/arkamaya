@@ -337,12 +337,12 @@ function shortcourse_load_more(){
 
 	$query = new WP_Query( $args );
 
-	$html = '';
+	$html = ''; $modal = '';
 
 	if( $query->have_posts() ) :
 		while( $query->have_posts() ) : $query->the_post();
 			$html .= '<div class="col-md-4 col-12">
-                            <div class="block" data-fancybox data-src="#myModal-1">
+                            <div class="block" data-fancybox="gallery" data-src="#myModal-' . get_the_ID() . '">
                                 <div class="img">' . get_the_post_thumbnail( '', array( 'class' => 'img-fluid' ) ) . '</div>
                                 <div class="date">' . get_the_date( 'j F Y' ) . '</div>
                                 <div class="name">' . get_the_title() . '</div>
@@ -350,6 +350,27 @@ function shortcourse_load_more(){
                                 <div class="readmore">Read More <img src="' . get_bloginfo( 'template_url' ) . '/img/arrow-more.png" alt="" class="img-fluid"></div>
                             </div>
                         </div>';
+
+            $key_name = get_post_custom_values( 'price' );
+
+            $modal .= '<div id="myModal-' . get_the_ID() . '" style="display: none;">
+						  <div class="column-popup">
+						    <div class="btn-close"><img src="' . get_bloginfo('template_url') . '/img/btn-close.png" alt="" class="img-fluid"></div>
+						      <div class="container">
+						          <div class="row">
+						              <div class="col-md-3 col-12">
+						                <div class="img">' . get_the_post_thumbnail('', array('class' => 'img-fluid')) . '</div>
+						              </div>
+						              <div class="col-md-9 col-12">
+						                <div class="date">' . get_the_date('j F Y') . '</div>
+						                <div class="name">' . get_the_title() . '</div>
+						                <div class="content">' . get_the_content() . '</div>
+						                <div class="price"><span>Price :</span>' . $key_name[0] . '</div>
+						              </div>
+						          </div>
+						      </div>
+						  </div>
+						</div>';
 		endwhile;
 	endif;
 
@@ -359,7 +380,8 @@ function shortcourse_load_more(){
 		'pages' => $query->max_num_pages,
 		'posts' => $query->post_count,
 		'cat_name' => $cat_name,
-		'html' => $html
+		'html' => $html,
+		'modal' => $modal
 	);
 
 	echo json_encode( $return );
@@ -388,7 +410,7 @@ function shortcourse_filter_category(){
 	if( $query->have_posts() ) :
 		while( $query->have_posts() ) : $query->the_post();
 			$html .= '<div class="col-md-4 col-12">
-                            <div class="block" data-fancybox data-src="#myModal-1">
+                            <div class="block" data-fancybox="gallery" data-src="#myModal-' . get_the_ID() . '">
                                 <div class="img">' . get_the_post_thumbnail( '', array( 'class' => 'img-fluid' ) ) . '</div>
                                 <div class="date">' . get_the_date( 'j F Y' ) . '</div>
                                 <div class="name">' . get_the_title() . '</div>
@@ -396,6 +418,27 @@ function shortcourse_filter_category(){
                                 <div class="readmore">Read More <img src="' . get_bloginfo( 'template_url' ) . '/img/arrow-more.png" alt="" class="img-fluid"></div>
                             </div>
                         </div>';
+
+            $key_name = get_post_custom_values( 'price' );
+
+            $modal .= '<div id="myModal-' . get_the_ID() . '" style="display: none;">
+						  <div class="column-popup">
+						    <div class="btn-close"><img src="' . get_bloginfo('template_url') . '/img/btn-close.png" alt="" class="img-fluid"></div>
+						      <div class="container">
+						          <div class="row">
+						              <div class="col-md-3 col-12">
+						                <div class="img">' . get_the_post_thumbnail('', array('class' => 'img-fluid')) . '</div>
+						              </div>
+						              <div class="col-md-9 col-12">
+						                <div class="date">' . get_the_date('j F Y') . '</div>
+						                <div class="name">' . get_the_title() . '</div>
+						                <div class="content">' . get_the_content() . '</div>
+						                <div class="price"><span>Price :</span>' . $key_name[0] . '</div>
+						              </div>
+						          </div>
+						      </div>
+						  </div>
+						</div>';
 		endwhile;
 	endif;
 
@@ -405,7 +448,8 @@ function shortcourse_filter_category(){
 		'pages' => $query->max_num_pages,
 		'posts' => $query->post_count,
 		'cat_name' => $cat_name,
-		'html' => $html
+		'html' => $html,
+		'modal' => $modal
 	);
 
 	echo json_encode( $return );

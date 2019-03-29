@@ -75,9 +75,11 @@ $cat_name = get_query_var( 'category_name' );
             <div class="column-post-wrapper">
                 <div class="container">
                     <div class="row" id="shortcourse-wrapper">
-                       <?php  while ( $loop->have_posts() ) : $loop->the_post();?>
+                        <?php  
+                            while ( $loop->have_posts() ) : $loop->the_post();
+                        ?>
                         <div class="col-md-4 col-12">
-                            <div class="block" data-fancybox data-src="#myModal-1">
+                            <div class="block" data-fancybox="gallery" data-src="#myModal-<?php echo get_the_ID(); ?>">
                                 <div class="img"><?php the_post_thumbnail('', array('class' => 'img-fluid'))?></div>
                                 <div class="date"><?php echo get_the_date('j F Y'); ?></div>
                                 <div class="name"><?php the_title();?></div>
@@ -85,7 +87,9 @@ $cat_name = get_query_var( 'category_name' );
                                 <div class="readmore">Read More <img src="<?php bloginfo('template_url');?>/img/arrow-more.png" alt="" class="img-fluid"></div>
                             </div>
                         </div>
-                        <?php endwhile;?>
+                        <?php 
+                            endwhile;
+                        ?>
                     </div>
                     <div class="row">
                         <div class="more"><a href="#" id="load-more">show more</a></div>
@@ -100,18 +104,25 @@ $cat_name = get_query_var( 'category_name' );
     </div><!-- #primary -->
 
     
+<div id="modal-wrapper">
+<?php  
+    while ( $loop->have_posts() ) : $loop->the_post();
+        $in_same_cat = false;
+        if( !empty( $cat_name ) ) $in_same_cat = true;
 
-<?php  while ( $loop->have_posts() ) : $loop->the_post();?>
+        $next_post = get_next_post( $in_same_cat );
+        $prev_post = get_previous_post( $in_same_cat );
+?>
 <!-- The Modal -->
-<div id="myModal-1" style="display: none;">
+<div id="myModal-<?php echo get_the_ID(); ?>" style="display: none;">
   <div class="column-popup">
     <div class="btn-close"><img src="<?php bloginfo('template_url');?>/img/btn-close.png" alt="" class="img-fluid"></div>
-    <div class="navigation">
+    <!-- <div class="navigation">
         <div class="clearfix">
-            <div class="prev arrow float-left">Previous</div>
-            <div class="next arrow float-right">Next</div>
+            <div class="prev arrow float-left"><a href="#myModal-<?php echo $prev_post->ID; ?>">Previous</a></div>
+            <div class="next arrow float-right"><a href="#myModal-<?php echo $next_post->ID; ?>">Next</a></div>
         </div>
-    </div>
+    </div> -->
       <div class="container">
           <div class="row">
               <div class="col-md-3 col-12">
@@ -127,7 +138,10 @@ $cat_name = get_query_var( 'category_name' );
       </div>
   </div>
 </div>
-<?php endwhile;?>
+<?php 
+    endwhile;
+?>
+</div>
 
 <?php wp_reset_query(); wp_reset_postdata(); ?>
 
@@ -166,19 +180,20 @@ $cat_name = get_query_var( 'category_name' );
                     $('#cat_name').val(response.cat_name);
 
                     $('#shortcourse-wrapper').append(response.html); 
+                    $('#modal-wrapper').append(response.modal); 
 
                     if(response.page >= response.pages){
                         $('#load-more').hide();
                     }
 
-                    if(history.pushState) {
-                        if($cat_name == ''){
-                            window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>page/" + response.page);
-                        }else{
-                            window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>category/" + response.cat_name + "/page/" + response.page);
-                        }
+                    // if(history.pushState) {
+                    //     if($cat_name == ''){
+                    //         window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>page/" + response.page);
+                    //     }else{
+                    //         window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>category/" + response.cat_name + "/page/" + response.page);
+                    //     }
                         
-                    }
+                    // }
                 }
             });
 
@@ -208,20 +223,21 @@ $cat_name = get_query_var( 'category_name' );
                     $('#cat_name').val(response.cat_name);
 
                     $('#shortcourse-wrapper').html(response.html); 
+                    $('#modal-wrapper').html(response.modal); 
 
                     $('#load-more').show();
                     
                     $('#category-filter li').removeClass('selected');
                     $parent.addClass('selected');
 
-                    if(history.pushState) {
-                        if(response.cat_name == ''){
-                            window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>");
-                        }else{
-                            window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>category/" + response.cat_name);
-                        }
+                    // if(history.pushState) {
+                    //     if(response.cat_name == ''){
+                    //         window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>");
+                    //     }else{
+                    //         window.history.pushState("object or string", "Title", "<?php echo get_permalink(); ?>category/" + response.cat_name);
+                    //     }
                         
-                    }
+                    // }
                 }
             });
 
