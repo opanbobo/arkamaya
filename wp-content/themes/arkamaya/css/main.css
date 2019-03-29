@@ -1801,9 +1801,11 @@ body{
     bottom: 0;
     left: 0;
     right:0;
+    z-index: 10;
 }
 .column-popup .navigation .arrow{
     color: #C3AE4F;
+    cursor: pointer;
 }
 .column-popup .date{
     font-family: Montserrat;
@@ -2274,4 +2276,8 @@ body{
     #home-culinary .content-right{
         height: 60vh;
     }
+}
+
+.fancybox-navigation{
+    display: none !important;
 }

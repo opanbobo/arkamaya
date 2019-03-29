@@ -356,6 +356,12 @@ function shortcourse_load_more(){
             $modal .= '<div id="myModal-' . get_the_ID() . '" style="display: none;">
 						  <div class="column-popup">
 						    <div class="btn-close"><img src="' . get_bloginfo('template_url') . '/img/btn-close.png" alt="" class="img-fluid"></div>
+						    <div class="navigation">
+        <div class="clearfix">
+            <div class="prev arrow float-left" data-fancybox-prev>Previous</div>
+            <div class="next arrow float-right" data-fancybox-next>Next</div>
+        </div>
+    </div>
 						      <div class="container">
 						          <div class="row">
 						              <div class="col-md-3 col-12">
@@ -424,6 +430,12 @@ function shortcourse_filter_category(){
             $modal .= '<div id="myModal-' . get_the_ID() . '" style="display: none;">
 						  <div class="column-popup">
 						    <div class="btn-close"><img src="' . get_bloginfo('template_url') . '/img/btn-close.png" alt="" class="img-fluid"></div>
+						    	<div class="navigation">
+        <div class="clearfix">
+            <div class="prev arrow float-left" data-fancybox-prev>Previous</div>
+            <div class="next arrow float-right" data-fancybox-next>Next</div>
+        </div>
+    </div>
 						      <div class="container">
 						          <div class="row">
 						              <div class="col-md-3 col-12">

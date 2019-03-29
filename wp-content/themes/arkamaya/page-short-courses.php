@@ -117,12 +117,12 @@ $cat_name = get_query_var( 'category_name' );
 <div id="myModal-<?php echo get_the_ID(); ?>" style="display: none;">
   <div class="column-popup">
     <div class="btn-close"><img src="<?php bloginfo('template_url');?>/img/btn-close.png" alt="" class="img-fluid"></div>
-    <!-- <div class="navigation">
+    <div class="navigation">
         <div class="clearfix">
-            <div class="prev arrow float-left"><a href="#myModal-<?php echo $prev_post->ID; ?>">Previous</a></div>
-            <div class="next arrow float-right"><a href="#myModal-<?php echo $next_post->ID; ?>">Next</a></div>
+            <div class="prev arrow float-left" data-fancybox-prev>Previous</div>
+            <div class="next arrow float-right" data-fancybox-next>Next</div>
         </div>
-    </div> -->
+    </div>
       <div class="container">
           <div class="row">
               <div class="col-md-3 col-12">
