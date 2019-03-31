@@ -341,7 +341,7 @@ function shortcourse_load_more(){
 
 	if( $query->have_posts() ) :
 		while( $query->have_posts() ) : $query->the_post();
-			$html .= '<div class="col-md-4 col-12">
+			$html .= '<div class="col-md-4 col-12" id="short-course-' . get_the_ID() . '">
                             <div class="block" data-fancybox="gallery" data-src="#myModal-' . get_the_ID() . '">
                                 <div class="img">' . get_the_post_thumbnail( '', array( 'class' => 'img-fluid' ) ) . '</div>
                                 <div class="date">' . get_the_date( 'j F Y' ) . '</div>
@@ -370,7 +370,7 @@ function shortcourse_load_more(){
 						              <div class="col-md-9 col-12">
 						                <div class="date">' . get_the_date('j F Y') . '</div>
 						                <div class="name">' . get_the_title() . '</div>
-						                <div class="content">' . get_the_content() . '</div>
+						                <div class="content">' . do_shortcode( get_the_content() ) . '</div>
 						                <div class="price"><span>Price :</span>' . $key_name[0] . '</div>
 						              </div>
 						          </div>

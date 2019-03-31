@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+jQuery( document ).ready(function($) {
 
     $('.single-item').slick({
         infinite: true,
@@ -35,7 +35,7 @@ $( document ).ready(function() {
         slidesToScroll: 1
     });
 
-    $('.btn-close').click(function(){
+    $('.fancybox-content .btn-close').on('click', function(){
       $.fancybox.close();
     });
 });

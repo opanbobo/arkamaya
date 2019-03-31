@@ -78,7 +78,7 @@ $cat_name = get_query_var( 'category_name' );
                         <?php  
                             while ( $loop->have_posts() ) : $loop->the_post();
                         ?>
-                        <div class="col-md-4 col-12">
+                        <div class="col-md-4 col-12" id="short-course-<?php echo get_the_ID(); ?>">
                             <div class="block" data-fancybox="gallery" data-src="#myModal-<?php echo get_the_ID(); ?>">
                                 <div class="img"><?php the_post_thumbnail('', array('class' => 'img-fluid'))?></div>
                                 <div class="date"><?php echo get_the_date('j F Y'); ?></div>
@@ -131,7 +131,7 @@ $cat_name = get_query_var( 'category_name' );
               <div class="col-md-9 col-12">
                 <div class="date"><?php echo get_the_date('j F Y'); ?></div>
                 <div class="name"><?php the_title();?></div>
-                <div class="content"><?php the_content();?></div>
+                <div class="content"><?php the_content(); ?></div>
                 <div class="price"><span>Price :</span> <?php $key_name = get_post_custom_values($key = 'price'); echo $key_name[0];?></div>
               </div>
           </div>
