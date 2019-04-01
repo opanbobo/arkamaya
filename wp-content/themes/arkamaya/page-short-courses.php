@@ -116,7 +116,7 @@ $cat_name = get_query_var( 'category_name' );
 <!-- The Modal -->
 <div id="myModal-<?php echo get_the_ID(); ?>" style="display: none;">
   <div class="column-popup">
-    <div class="btn-close"><img src="<?php bloginfo('template_url');?>/img/btn-close.png" alt="" class="img-fluid"></div>
+    <div class="btn-close"><img src="<?php bloginfo('template_url');?>/img/btn-close.png" alt="" class="img-fluid" onclick="$.fancybox.close();" /></div>
     <div class="navigation">
         <div class="clearfix">
             <div class="prev arrow float-left" data-fancybox-prev>Previous</div>

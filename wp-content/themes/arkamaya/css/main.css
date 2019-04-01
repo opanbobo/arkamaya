@@ -2281,3 +2281,8 @@ body{
 .fancybox-navigation{
     display: none !important;
 }
+
+.fancybox-content .btn-close,
+.fancybox-content .btn-close img{
+    cursor: pointer;
+}

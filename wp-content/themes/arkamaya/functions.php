@@ -275,6 +275,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 add_action( 'wp_ajax_blog_load_more', 'blog_load_more' );
+add_action( 'wp_ajax_nopriv_blog_load_more', 'blog_load_more' );
 function blog_load_more(){
 	$pages = absint( sanitize_text_field( $_POST['pages'] ) );
 	$page = absint( sanitize_text_field( $_POST['page'] ) );
@@ -317,6 +318,7 @@ function blog_load_more(){
 }
 
 add_action( 'wp_ajax_shortcourse_load_more', 'shortcourse_load_more' );
+add_action( 'wp_ajax_nopriv_shortcourse_load_more', 'shortcourse_load_more' );
 function shortcourse_load_more(){
 	$pages = absint( sanitize_text_field( $_POST['pages'] ) );
 	$page = absint( sanitize_text_field( $_POST['page'] ) );
@@ -355,7 +357,7 @@ function shortcourse_load_more(){
 
             $modal .= '<div id="myModal-' . get_the_ID() . '" style="display: none;">
 						  <div class="column-popup">
-						    <div class="btn-close"><img src="' . get_bloginfo('template_url') . '/img/btn-close.png" alt="" class="img-fluid"></div>
+						    <div class="btn-close"><img src="' . get_bloginfo('template_url') . '/img/btn-close.png" alt="" class="img-fluid" onclick="$.fancybox.close();" /></div>
 						    <div class="navigation">
         <div class="clearfix">
             <div class="prev arrow float-left" data-fancybox-prev>Previous</div>
@@ -395,6 +397,7 @@ function shortcourse_load_more(){
 }
 
 add_action( 'wp_ajax_shortcourse_filter_category', 'shortcourse_filter_category' );
+add_action( 'wp_ajax_nopriv_shortcourse_filter_category', 'shortcourse_filter_category' );
 function shortcourse_filter_category(){
 	$cat_name = sanitize_text_field( $_POST['cat_name'] );
 
@@ -429,7 +432,7 @@ function shortcourse_filter_category(){
 
             $modal .= '<div id="myModal-' . get_the_ID() . '" style="display: none;">
 						  <div class="column-popup">
-						    <div class="btn-close"><img src="' . get_bloginfo('template_url') . '/img/btn-close.png" alt="" class="img-fluid"></div>
+						    <div class="btn-close"><img src="' . get_bloginfo('template_url') . '/img/btn-close.png" alt="" class="img-fluid" onclick="$.fancybox.close();" /></div>
 						    	<div class="navigation">
         <div class="clearfix">
             <div class="prev arrow float-left" data-fancybox-prev>Previous</div>

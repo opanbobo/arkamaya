@@ -35,7 +35,7 @@ jQuery( document ).ready(function($) {
         slidesToScroll: 1
     });
 
-    $('.fancybox-content .btn-close').on('click', function(){
+    $('.fancybox-content .btn-close').click(function(){
       $.fancybox.close();
     });
 });
