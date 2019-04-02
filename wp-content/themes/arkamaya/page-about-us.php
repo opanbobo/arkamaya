@@ -52,7 +52,7 @@ get_header();
 				<div class="col-md-4 col-12">
 					<div class="block">
 						<div class="img"><img src="<?php bloginfo('template_url');?>/img/mission.png" alt="" class="img-fluid"></div>
-						<h3 class="subtitle">mssion</h3>
+						<h3 class="subtitle">mission</h3>
 						<div class="desc">
 							<p>To open new doors to attractive opportunities in the culinary arts, by providing distinguished facilities, start-from-scratch techniques, and exemplary quality. </p>
 						</div>
@@ -78,7 +78,7 @@ get_header();
 					<div class="col-md-5 offset-md-7 col-12">
 						<h1 class="title">Inside our <strong>Kitchen</strong></h1>
 						<div class="desc"><p>Our training rooms, also available for rent, are well equipped with sophisticated kitchen tools and also multimedia resources to set up an effective learning environment</p></div>
-						<div class="more"><a href="#">VIEW FACILITIES</a></div>
+						<div class="more"><a href="<?php echo get_permalink( get_page_by_path( 'facilities' ) ); ?>">VIEW FACILITIES</a></div>
 					</div>
 				</div>
 			</div>

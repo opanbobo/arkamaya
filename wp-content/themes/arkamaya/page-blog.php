@@ -41,17 +41,17 @@ $pagenow = $page ? $page : 1;
 
                     if( $query->have_posts() ) :
                     ?>
-                    <div class="masonry" id="blog-wrapper">  
+                    <div class="grid" id="blog-wrapper">  
+                        <div class="grid-sizer"></div>
                         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-                        <div class="custom-width">
-                            <div class="block">
-                                <div class="img"><a href="<?php the_permalink();?>"><?php the_post_thumbnail('', array('class' => 'img-fluid'))?></a></div>
-                                <div class="date"><?php echo get_the_date('j F Y'); ?></div>
-                                <div class="title-post"><a href="<?php the_permalink();?>"><?php the_title();?></a></div>
-                                <div class="desc"><?php echo get_the_excerpt();?></div>
-                                <div class="more"><a href="<?php the_permalink();?>">Read More <img src="<?php bloginfo('template_url');?>/img/arrow-more.png" alt="" class="img-fluid"></a></div>
-                            </div>
+                        <div class="grid-item">
+                            <div class="img"><a href="<?php the_permalink();?>"><?php the_post_thumbnail('', array('class' => 'img-fluid'))?></a></div>
+                            <div class="date"><?php echo get_the_date('j F Y'); ?></div>
+                            <div class="title-post"><a href="<?php the_permalink();?>"><?php the_title();?></a></div>
+                            <div class="desc"><?php echo get_the_excerpt();?></div>
+                            <div class="more"><a href="<?php the_permalink();?>">Read More <img src="<?php bloginfo('template_url');?>/img/arrow-more.png" alt="" class="img-fluid"></a></div>
                         </div>
+
                         <?php 
                             $i++;
                         endwhile;

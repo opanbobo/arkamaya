@@ -78,7 +78,7 @@ get_header();
                     <h1 class="title"><strong>Kitchen</strong> studio rental</h1>
                     <div class="content">
                         <div class="row">
-                            <div class="col-md-4 col-12">
+                            <div class="col-md-4 col-12 col-left">
                                 <div class="desc">
                                     <p>With an area of 340sqm, our state-of-the-art kitchen space is a truly a chef’s dream. There are two studios available for your cooking and baking needs, both are fully equipped with commercial and domestic appliances.</p>
 
@@ -99,6 +99,28 @@ get_header();
                                     </ul>
 
                                     <span><i>Rooms are available on weekdays by appointment</i></span>
+                                    <div class="table-jadwal" style="margin-top: 20px;">
+                                        <table style="text-align: center;">
+                                            <tr>
+                                                <td width="80" style="border-right: 1px solid #C3AE4F"><img src="<?php bloginfo('template_url');?>/img/price-tag.png" alt="" class="img-fluid" width="25"></td>
+                                                <td width="80" style="border-right: 1px solid #C3AE4F">Half Day <br>(~ 5 Hours)</td>
+                                                <td width="80" style="border-right: 1px solid #C3AE4F">Full Day <br>(~ 10 Hours)</td>
+                                                <td width="80" style="">Additional Hour</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">Pastry</td>
+                                                <td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F"><strong>IDR 7.000.000</strong></td>
+                                                <td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F"><strong>IDR 15.000.000</strong></td>
+                                                <td width="80" style="border-top: 1px solid #C3AE4F;"><strong>IDR 2.500.000</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">Cooking</td>
+                                                <td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F"><strong>IDR 7.000.000</strong></td>
+                                                <td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F"><strong>IDR 15.000.000</strong></td>
+                                                <td width="80" style="border-top: 1px solid #C3AE4F"><strong>IDR 2.500.000</strong></td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-8 col-12">

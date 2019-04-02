@@ -22,21 +22,43 @@ get_header();
 
 		<?php
 		while ( have_posts() ) :
-			the_post();
+			the_post();?>
+		<div class="container">	
+			<div class="title"><?php the_title();?></div>
+		</div>
+			
 
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
+		<?php endwhile; // End of the loop.
 		?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();
+<footer id="colophonx" class="site-footer contact-page">
+	<div class="container">
+		<h1 class="title-section">Lets get in touch</strong></h1>
+		<div class="column-footer">
+			<div class="row">
+				<div class="col-md-3 col-12">
+					<div class="block">
+						<h4>DIPO BUSINESS CENTER</h4>
+						<p>Jl. Jend Gatot Subroto Kav. 51-52, Ruko A9 <br>
+						Petamburan, Slipi <br>
+						Jakarta Pusat – 10260</p>
+						<a href="mailto:info@arkamayaculinary.com" class="email">info@arkamayaculinary.com</a>
+						<p>+6221-2253-9980 <br>+62811-9233-777</p>
+					</div>
+					<div class="sosmed">
+						<ul>
+							<li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-9 col-12">
+					<?php echo do_shortcode( '[contact-form-7 id="36" title="Contact form 1"]' ); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer><!-- #colophon -->

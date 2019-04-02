@@ -27,31 +27,31 @@ get_header();
                     </div>
                     <div class="list-menus">
                         <div class="row">
-                            <div class="col col1">
+                            <div class="col col1 column">
                                 <div class="img">
                                     <img src="<?php bloginfo('template_url');?>/img/catering-1.png" alt="" class="img-fluid">
                                     <div class="bock"><p>buffet</p></div>
                                 </div>
                             </div>
-                            <div class="col col2">
+                            <div class="col col2 column">
                                 <div class="img">
                                     <img src="<?php bloginfo('template_url');?>/img/catering-2.png" alt="" class="img-fluid">
                                     <div class="bock"><p>stalls</p></div>
                                 </div>
                             </div>
-                            <div class="col col3">
+                            <div class="col col3 column">
                                 <div class="img">
                                     <img src="<?php bloginfo('template_url');?>/img/catering-3.png" alt="" class="img-fluid">
                                     <div class="bock"><p>dessert</p></div>
                                 </div>
                             </div>
-                            <div class="col col4">
+                            <div class="col col4 column">
                                 <div class="img">
                                     <img src="<?php bloginfo('template_url');?>/img/catering-4.png" alt="" class="img-fluid">
                                     <div class="bock"><p>corporate</p></div>
                                 </div>
                             </div>
-                            <div class="col col5">
+                            <div class="col col5 column">
                                 <div class="img">
                                     <img src="<?php bloginfo('template_url');?>/img/catering-5.png" alt="" class="img-fluid">
                                     <div class="bock"><p>coffee break</p></div>
@@ -67,7 +67,7 @@ get_header();
                         </div>
                     </div>
                     <div class="request">
-                        <img src="<?php bloginfo('template_url');?>/img/arrow-btm.png" alt="" class="img-fluid"><p>Request More Information</p>
+                        <a href="#get-connected" class="click"><img src="<?php bloginfo('template_url');?>/img/arrow-btm.png" alt="" class="img-fluid"><p>Request More Information</a></p>
                     </div>
                 </div>
             </div>

@@ -32,13 +32,13 @@ get_header();
                             <div class="img"><img src="<?php bloginfo('template_url');?>/img/img-academy.jpg" alt="" class="img-fluid"></div>
                             <div class="title-block">COOKING PROGRAM</div>
                             <div class="shortdesc">Arkamaya Cooking Program is here to offer a unique way to learn about cooking, where students would not only graduate as a chef, but also a creative entrepreneur in the food industry.</div>
-                            <div class="detail"><a href="#">VIEW DETAILS</a></div>
+                            <div class="detail"><a href="<?php echo get_permalink( get_page_by_path( 'academy/cooking program' ) ); ?>">VIEW DETAILS</a></div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="img"><img src="<?php bloginfo('template_url');?>/img/img-academy-2.jpg" alt="" class="img-fluid"></div>
                             <div class="title-block">BAKING PROGRAM</div>
                             <div class="shortdesc">Arkamaya Pastry Program is not all about forming a professional, but also adding some other important components to create a soulful and creative baker.</div>
-                            <div class="detail"><a href="#">VIEW DETAILS</a></div>
+                            <div class="detail"><a href="<?php echo get_permalink( get_page_by_path( 'academy/pastry program' ) ); ?>">VIEW DETAILS</a></div>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@ get_header();
                                     </div>
                                     <div class="row"> 
                                         <div class="col-12">    
-                                            <div class="more"><a href="#"><img src="<?php bloginfo('template_url');?>/img/arrow-btm-white.png" alt="" class="img-fluid">Request More Information</a></div>
+                                            <div class="more"><a href="#get-connected" class="click"><img src="<?php bloginfo('template_url');?>/img/arrow-btm-white.png" alt="" class="img-fluid">Request More Information</a></div>
                                         </div>  
                                     </div>
                                 </div>
@@ -164,7 +164,7 @@ get_header();
                                 <div class="desc">
                                     <p>Sign up for our basic or intermediate program and get a very special internship program at a well renowed Ismaya restaurant. Hurry, limited spots available!</p>
                                 </div>
-                                <div class="more"><a href="#">find out more</a></div>
+                                <div class="more"><a href="<?php echo get_permalink( get_page_by_path( 'academy/internship program' ) ); ?>">find out more</a></div>
                             </div>
                         </div>
                     </div>

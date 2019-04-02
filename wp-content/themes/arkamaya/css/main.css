@@ -186,7 +186,7 @@ body{
     text-transform: uppercase;
     font-weight: normal;
     font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
+    font-size: 24px;
 }
 #home-culinary .content-right .readmore{
     width: 50%;
@@ -228,7 +228,8 @@ body{
 }
 #home-programs .desc{
     padding: 0 4%;
-    font-size: 18px;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
 }
 #home-programs .title:after{
     content: '';
@@ -273,32 +274,36 @@ body{
     font-size: 36px;
     font-weight: normal;
 }
-#home-short-courses .date-wrapper{
+#home-short-courses .date-wrapper .short-slider{
     margin-bottom: -5%;
 }
-#home-short-courses .date-wrapper ul{
-    margin: 0;
-    text-align: center;
+#home-short-courses .date-wrapper .short-slider .slick-track{
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#home-short-courses .date-wrapper ul li{
+#home-short-courses .date-wrapper .column-slide{
     list-style: none;
     display: inline-block;
     background: #fff;
     border: 1px solid #C3AE4F;
     box-sizing: border-box;
-    width: 120px;
+    width: 120px !Important;
     height: 120px;
     border-radius: 50%;
     padding: 20px 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: #C3AE4F;
     margin: 0 5px;
+    outline: none;
+    cursor: pointer;
 }
-#home-short-courses .date-wrapper ul li.active{
+#home-short-courses .date-wrapper .column-slide.slick-current{
     background: #C3AE4F;
     color: #fff;
 }
-#home-short-courses .date-wrapper ul li .date{
+#home-short-courses .date-wrapper .column-slide .date{
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
@@ -307,7 +312,7 @@ body{
     text-align: center;
     letter-spacing: 2px;
 }
-#home-short-courses .date-wrapper ul li .month{
+#home-short-courses .date-wrapper .column-slide .month{
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
@@ -519,7 +524,7 @@ body{
 }
 .about-vimo .block .desc p{
     font-family: Open Sans;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 29px;
     text-align: center;
     margin:0;
@@ -546,7 +551,7 @@ body{
 #after-vimo .column .title{
     font-family: Montserrat;
     font-weight: normal;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 61px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -555,7 +560,7 @@ body{
 #after-vimo .column .desc p{
     font-family: Open Sans;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 29px;
     letter-spacing: 0.25px;
     margin: 0;
@@ -591,7 +596,7 @@ body{
 #about-we-do .title{
     font-family: Montserrat;
     font-weight: normal;
-    font-size: 36px;
+    font-size: 24px;
     text-transform: uppercase;
     color: #C3AE4F;
     margin: 0;
@@ -601,7 +606,7 @@ body{
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 29px;
     color: #595959;
 }
@@ -726,7 +731,7 @@ body{
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 61px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -736,7 +741,7 @@ body{
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 29px;
     letter-spacing: 0.25px;
     color: #595959;
@@ -760,12 +765,23 @@ body{
     background: #C3AE4F;
     color: #fff;
 }
+.table-jadwal{
+    font-size: 10px;
+}
+.table-jadwal td{
+    padding: 5px 0;
+    height: 30px;
+}
+.table-jadwal .columns{
+    border: 1px solid #C3AE4F;
+}
 .stories-slide-wrapper {
     padding: 5% 0;
 }
 .stories-slide-wrapper .stories-slider .slick-list{
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 5% 0;
 }
 .stories-slide-wrapper .stories-slider .slick-dots{
     margin: 50px 0;
@@ -1091,7 +1107,7 @@ body{
     font-family: Montserrat;
     font-style: normal;
     font-weight: 300;
-    font-size: 35px;
+    font-size: 24px;
     line-height: 61px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1105,6 +1121,7 @@ body{
     line-height: 29px;
     letter-spacing: 0.25px;
     color: #595959;
+    font-size: 16px;
 }
 #after-list-activities .more a{
     font-family: Open Sans;
@@ -1336,7 +1353,7 @@ body{
     font-family: Montserrat;
     font-style: normal;
     font-weight: 300;
-    font-size: 36px;
+    font-size: 24px;
     line-height: normal;
     text-align: center;
     letter-spacing: 1px;
@@ -1352,7 +1369,7 @@ body{
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 29px;
     text-align: center;
     letter-spacing: 0.25px;
@@ -1792,7 +1809,7 @@ body{
     box-sizing: border-box;
     padding: 15px;
     border-radius: 50%;
-    width: 255px;
+    width: 210px;
     height: 210px;
     object-fit: cover;
 }
@@ -1866,7 +1883,7 @@ body{
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 36px;
+    font-size: 24px;
     line-height: normal;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -1965,7 +1982,7 @@ body{
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 36px;
+    font-size: 24px;
     line-height: normal;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -2054,11 +2071,15 @@ body{
     z-index: 1;
 }
 
+#kitchen-rental .content .col-left{
+    margin-top: 5%;
+}
+
 #kitchen-rental .content .desc p{
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 14px;
     line-height: normal;
     letter-spacing: 0.25px;
     color: #595959;
@@ -2097,19 +2118,16 @@ body{
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 34px;
     text-align: center;
     letter-spacing: 0.25px;
     color: #595959;
 }
-.blog-post-wrapper .masonry .custom-width .img a{
-    display: block;
-}
-.blog-post-wrapper .masonry .custom-width .img{
+.blog-post-wrapper .grid .grid-item .img{
     margin-bottom: 20px;
 }
-.blog-post-wrapper .masonry .custom-width .block .date{
+.blog-post-wrapper .grid .grid-item .date{
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
@@ -2119,7 +2137,7 @@ body{
     color: #C3AE4F;
     text-transform: uppercase;
 }
-.blog-post-wrapper .masonry .custom-width .block .desc{
+.blog-post-wrapper .grid .grid-item .desc{
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
@@ -2128,10 +2146,10 @@ body{
     letter-spacing: 0.5px;
     color: #595959;
 }
-.blog-post-wrapper .masonry .custom-width .block .more{
+.blog-post-wrapper .grid .grid-item .more{
     margin-top: 20px;
 }
-.blog-post-wrapper .masonry .custom-width .block .more a{
+.blog-post-wrapper .grid .grid-item .more a{
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
@@ -2157,10 +2175,10 @@ body{
     background: #C3AE4F;
     color: #fff;
 }
-.blog-post-wrapper .masonry .custom-width .block .title-post{
+.blog-post-wrapper .grid .grid-item .title-post{
     margin: 20px 0;
 }
-.blog-post-wrapper .masonry .custom-width .block .title-post a{
+.blog-post-wrapper .grid .grid-item .title-post a{
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
@@ -2171,17 +2189,100 @@ body{
     color: #595959;
     text-decoration: none;
 }
-.blog-post-wrapper .masonry .custom-width .block .title-post a:hover{
+.blog-post-wrapper .grid .grid-item .title-post a:hover{
     color: #C3AE4F;
 }
-.blog-post-wrapper .masonry{
-    column-count: 3;
-    column-gap: 1em;
+.grid-sizer,
+.grid-item { 
+    width: 32%;
+    margin-bottom: 10px; 
 }
 .blog-post-wrapper .custom-width{
     margin: 0 ;
     width: 100%;
     padding: 10px 20px;
+}
+.morebox a{
+    display: inline-block;
+    text-decoration: none;
+    color: #C3AE4F ;
+    border: 1px solid #C3AE4F;
+    width: 30%;
+    padding: 10px;
+    text-decoration: none;
+}
+.morebox a:hover{
+    background: #C3AE4F;
+    color: #fff;
+}
+
+.single-wrapper{
+    padding: 5% 0;
+}
+.single-wrapper .bg{
+    background: url(../img/line-bottom.png) no-repeat center bottom;
+    padding-bottom: 50px;
+}
+.single-wrapper .title{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 54px;
+    line-height: normal;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #595959;
+    padding: 10% 0 0;
+}
+.single-wrapper .date{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: normal;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #C3AE4F;
+    padding: 5% 0;
+}
+.single-wrapper .author{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 31px;
+    text-align: left;
+    letter-spacing: 1px;
+    color: #C3AE4F;
+}
+.single-wrapper .related-post-wrapper{
+    padding: 5% 0;
+}
+.single-wrapper .related-post-wrapper .title-bottom{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 61px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #C3AE4F;
+    text-align: center;
+    padding-bottom: 5%;
+}
+.single-wrapper .related-post-wrapper .date{
+    text-align: left;
+    padding: 0;
+}
+.contact-page{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin-top: 0;
+}
+.contact-page .title-section{
+    font-family: Barbershop in Thailand;
+    text-transform: capitalize;
 }
 
 
@@ -2202,6 +2303,76 @@ body{
     }
     .bg-top{
         padding: 20% 0;
+    }
+    #home-culinary{
+        background-size: cover;
+    }
+    #home-programs .readmore{
+        margin-bottom: 50px;
+    }
+    .fix-top .container{
+        padding: 0;
+        margin: 0;
+    }
+    .fix-top .navbar .show-onmobile,
+    .fix-top  .navbar-collapse{
+        padding: 0 15px;
+    }
+    .site-footer .sosmed{
+        margin: 20px 0;
+    }
+    .wpcf7-form .form-group .row input{
+        width: 100% !important;
+    }
+    #after-vimo .column .more {
+        margin: 50px 0;
+    }
+    #support-facilities .column .list-img .block{
+        width: 30%;
+    }
+    #list-program .detail{
+        margin-bottom: 50px;
+    }
+    #class-academy .container-fluid{
+        padding: 0;
+    }
+    #class-academy .bg{
+        padding: 20px;
+    }
+    #class-academy .bg .shortdesc p{
+        margin-bottom: 0;
+    }
+    #chef-wrapper .block{
+         margin-bottom: 50px;
+    }
+    .blog-post-wrapper .masonry{
+        column-count: 1;
+    }
+    #list-activities .detail{
+        margin-bottom: 50px;
+    }
+    .bg-top .column-content .desc,
+    .column-content .request,
+    .column-content .info .shortdesc{
+        width: auto;
+    }
+    .class-format-wrapper .column-wrapper .col{
+        flex-basis: auto;
+    }
+    .class-format-wrapper .column-wrapper .block{
+        padding: 0 20px;
+    }
+    .viewmore a{
+        padding: 10px;
+        width: auto;
+    }
+    .column-content .list-menus .column{
+        display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: center;
+        flex-basis: inherit;
+        margin-bottom: 20px;
     }
 }
 
@@ -2281,7 +2452,6 @@ body{
 .fancybox-navigation{
     display: none !important;
 }
-
 .fancybox-content .btn-close,
 .fancybox-content .btn-close img{
     cursor: pointer;

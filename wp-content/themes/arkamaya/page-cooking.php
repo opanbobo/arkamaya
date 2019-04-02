@@ -66,7 +66,31 @@ get_header();
 									</div>
 								</div>
 								<div class="col-md-7">
-									table
+									<div class="table-jadwal">
+										<table style="text-align: center;">
+											<tr>
+												<td width="80" style="border-right: 1px solid #C3AE4F">-</td>
+												<td width="80" style="border-right: 1px solid #C3AE4F">Monday</td>
+												<td width="80" style="border-right: 1px solid #C3AE4F">Tuesday</td>
+												<td width="80" style="border-right: 1px solid #C3AE4F">Wednesday</td>
+												<td width="80" style="">Thursday</td>
+											</tr>
+											<tr>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">Feb 2019</td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">-</td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F"><strong>Available</strong></td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">-</td>
+												<td width="80" style="border-top: 1px solid #C3AE4F"><strong>Available</strong></td>
+											</tr>
+											<tr>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">Mar 2019</td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F"><strong>Available</strong></td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">-</td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F"><strong>Available</strong></td>
+												<td width="80" style="border-top: 1px solid #C3AE4F">-</td>
+											</tr>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -116,12 +140,36 @@ get_header();
 									</div>
 								</div>
 								<div class="col-md-7">
-									table
+									<div class="table-jadwal">
+										<table style="text-align: center;">
+											<tr>
+												<td width="80" style="border-right: 1px solid #C3AE4F">-</td>
+												<td width="80" style="border-right: 1px solid #C3AE4F">Monday</td>
+												<td width="80" style="border-right: 1px solid #C3AE4F">Tuesday</td>
+												<td width="80" style="border-right: 1px solid #C3AE4F">Wednesday</td>
+												<td width="80" style="">Thursday</td>
+											</tr>
+											<tr>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">Feb 2019</td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">-</td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F"><strong>Available</strong></td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">-</td>
+												<td width="80" style="border-top: 1px solid #C3AE4F"><strong>Available</strong></td>
+											</tr>
+											<tr>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">Mar 2019</td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F"><strong>Available</strong></td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F">-</td>
+												<td width="80" style="border-top: 1px solid #C3AE4F;border-right: 1px solid #C3AE4F"><strong>Available</strong></td>
+												<td width="80" style="border-top: 1px solid #C3AE4F">-</td>
+											</tr>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-12">
+					<div class="col-md-5 offset-md-1 col-12">
 						<div class="desc">
 							<p>An introduction to Indonesian cooking. You will be able to learn the incredible Indonesian key ingredients & spices, and create a variety of dishes from scratch.</p>
 

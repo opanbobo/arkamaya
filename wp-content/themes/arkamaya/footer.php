@@ -13,7 +13,7 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
+	<footer id="get-connected" class="site-footer">
 		<div class="container">
 			<h1 class="title-section">get <strong>connected</strong></h1>
 			<div class="column-footer">
@@ -29,9 +29,9 @@
 						</div>
 						<div class="sosmed">
 							<ul>
-								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a></li>
 							</ul>
 						</div>
 					</div>
