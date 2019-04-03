@@ -45,7 +45,7 @@ $pagenow = $page ? $page : 1;
                         <div class="grid-sizer"></div>
                         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
                         <div class="grid-item">
-                            <div class="img"><a href="<?php the_permalink();?>"><?php the_post_thumbnail('', array('class' => 'img-fluid'))?></a></div>
+                            <div class="img"><a href="<?php the_permalink();?>"><?php the_post_thumbnail( '', array('class' => 'img-fluid'))?></a></div>
                             <div class="date"><?php echo get_the_date('j F Y'); ?></div>
                             <div class="title-post"><a href="<?php the_permalink();?>"><?php the_title();?></a></div>
                             <div class="desc"><?php echo get_the_excerpt();?></div>
@@ -104,8 +104,16 @@ $pagenow = $page ? $page : 1;
                     $('#pages').val(response.pages);
                     $('#pagenow').val(response.page);
 
-                    $('#blog-wrapper').append(response.html); 
+                    //$('#blog-wrapper').append(response.html);
+                    
+                    if(typeof $grid !== 'undefined' || $grid != null){
+                        //$grid.masonry('reloadItems');
 
+                        var $items = $(response.html);
+
+                        $grid.append($items).masonry('appended', $items);
+                    }
+                    
                     if(response.page >= response.pages){
                         $('#load-more').hide();
                     }

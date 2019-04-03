@@ -1,4 +1,16 @@
+var $grid = null;
+
 jQuery( document ).ready(function($) {
+    $(window).on('load', function(){
+          $grid = $('.grid').masonry({
+            // set itemSelector so .grid-sizer is not used in layout
+              itemSelector: '.grid-item',
+              // use element for option
+              columnWidth: '.grid-sizer',
+              gutter: 20,
+              percentPosition: true
+          });
+      });
 
     $('.single-item').slick({
         infinite: true,
@@ -59,14 +71,4 @@ jQuery( document ).ready(function($) {
             scrollTop: $("#get-connected").offset().top
         }, 2000);
     });
-
-    $('.grid').masonry({
-    // set itemSelector so .grid-sizer is not used in layout
-      itemSelector: '.grid-item',
-      // use element for option
-      columnWidth: '.grid-sizer',
-      gutter: 20,
-      percentPosition: true
-    })
-
 });

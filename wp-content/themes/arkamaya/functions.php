@@ -341,9 +341,9 @@ function blog_load_more(){
 
 	if( $query->have_posts() ) :
 		while( $query->have_posts() ) : $query->the_post();
-			$html .= '<div class="custom-width">
+			$html .= '<div class="grid-item">
                             <div class="block">
-                                <div class="img"><a href="' . get_the_permalink() . '">' . get_the_post_thumbnail('', array( 'class' => 'img-fluid' ) ) . '</a></div>
+                                <div class="img"><a href="' . get_the_permalink() . '">' . get_the_post_thumbnail( $post, 'large', array( 'class' => 'img-fluid' ) ) . '</a></div>
                                 <div class="date">' . get_the_date( 'j F Y' ) . '</div>
                                 <div class="title-post"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></div>
                                 <div class="desc">' . get_the_excerpt() . '</div>
@@ -495,7 +495,7 @@ function shortcourse_filter_category(){
 						              <div class="col-md-9 col-12">
 						                <div class="date">' . get_the_date('j F Y') . '</div>
 						                <div class="name">' . get_the_title() . '</div>
-						                <div class="content">' . get_the_content() . '</div>
+						                <div class="content">' . do_shortcode( get_the_content() ) . '</div>
 						                <div class="price"><span>Price :</span>' . $key_name[0] . '</div>
 						              </div>
 						          </div>
