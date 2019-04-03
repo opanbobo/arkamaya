@@ -105,9 +105,57 @@ function shortcourse() {
 }
 add_action( 'init', 'shortcourse' );
 
+// Stories
+function stories() {
+    $args = array(
+      'label' => 'Stories',
+        'public' => true,
+        'show_ui' => true,
+        'capability_type' => 'post',
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'stories'),
+        'query_var' => true,
+        'taxonomies' => array( 'category' ),
+        // 'menu_icon' => 'dashicons-video-alt',
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'custom-fields',
+            'revisions',
+            'thumbnail',
+            'author',
+            'page-attributes',)
+        );
+    register_post_type( 'stories', $args );
+}
+add_action( 'init', 'stories' );
 
-
-
+// Chef
+function chef() {
+    $args = array(
+      'label' => 'Chef',
+        'public' => true,
+        'show_ui' => true,
+        'capability_type' => 'post',
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'chef'),
+        'query_var' => true,
+        'taxonomies' => array( 'category' ),
+        // 'menu_icon' => 'dashicons-video-alt',
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'custom-fields',
+            'revisions',
+            'thumbnail',
+            'author',
+            'page-attributes',)
+        );
+    register_post_type( 'chef', $args );
+}
+add_action( 'init', 'chef' );
 
 
 

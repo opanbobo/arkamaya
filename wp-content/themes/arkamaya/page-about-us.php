@@ -18,7 +18,7 @@ get_header();
 ?>
 
 	<div id="about-banner">
-		<div class="full-width-image"><img src="<?php bloginfo('template_url');?>/img/landing-about.png" alt="" class="img-fluid"></div>
+		<div class="full-width-image"><?php the_post_thumbnail('', array('class' => 'img-fluid'))?></div>
 	</div>
 	<div id="about-we-do">
 		<div class="container">
@@ -28,9 +28,12 @@ get_header();
 						<h1 class="title">what <strong>we do</strong></h1>
 					</div>
 					<div class="col-md-8 col-12">
+						<?php
+					        $post_id = 314;
+					        $queried_post = get_post($post_id);
+					    ?>
 						<div class="desc">
-							<p>Inspired by the food industry that keeps developing as fast as poaching an egg, Arkamaya offers a first-class culinary education of Indonesian cuisine in the heart of Jakarta.</p>
-							<p>It is our belief that everyone has that creative soul and hunger for greatness. Accordingly, we have built a diverse range of programs (academy and short courses) for every person fond of Indonesian food, either a professional or an everyday learner. Each lesson will simmer your creativity to take that familiar taste from your mother’s kitchen, mix it well, and turn it into something new.</p>
+							<?php echo $queried_post->post_content;?>
 						</div>
 					</div>
 				</div>
@@ -40,49 +43,37 @@ get_header();
 	<div id="about-vimo">
 		<div class="container">
 			<div class="row">
+				<?php query_posts(array('cat' => 22, 'order' => 'ASC', 'posts_per_page' => 3));
+                		while(have_posts()) : the_post(); ?>
 				<div class="col-md-4 col-12">
 					<div class="block">
-						<div class="img"><img src="<?php bloginfo('template_url');?>/img/vision.png" alt="" class="img-fluid"></div>
-						<h3 class="subtitle">VISION</h3>
+						<div class="img"><?php the_post_thumbnail('', array('class' => 'img-fluid'))?></div>
+						<h3 class="subtitle"><?php the_title();?></h3>
 						<div class="desc">
-							<p>To be a leading culinary platform that offers creative education and innovative training for Indonesian food and pastry enthusiasts.</p>
+							<?php the_content();?>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 col-12">
-					<div class="block">
-						<div class="img"><img src="<?php bloginfo('template_url');?>/img/mission.png" alt="" class="img-fluid"></div>
-						<h3 class="subtitle">mission</h3>
-						<div class="desc">
-							<p>To open new doors to attractive opportunities in the culinary arts, by providing distinguished facilities, start-from-scratch techniques, and exemplary quality. </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-12">
-					<div class="block">
-						<div class="img"><img src="<?php bloginfo('template_url');?>/img/obj.png" alt="" class="img-fluid"></div>
-						<h3 class="subtitle">objective</h3>
-						<div class="desc">
-							<p>Arkamaya is determined to produce graduates who are not just talented, but also full of creativity and having the drive to bring Indonesian culinary forward – to be not just a cook, but also a creative entrepreneur in the industry.</p>
-						</div>
-					</div>
-				</div>
+				<?php endwhile; wp_reset_query(); ?>
 			</div>
 		</div>
 	</div>
 	<div id="after-vimo">
-	<div class="img"><img src="<?php bloginfo('template_url');?>/img/facilities.png" alt="" class="img-fluid"></div>
+	<?php
+        $post_id = 302;
+        $queried_post = get_post($post_id);
+    ?>
+	<div class="img"><?php echo get_the_post_thumbnail($post_id, '', array('class' => 'img-fluid'))?></div>
 		<div class="container">
 			<div class="column">
 				<div class="row">
 					<div class="col-md-5 offset-md-7 col-12">
 						<h1 class="title">Inside our <strong>Kitchen</strong></h1>
-						<div class="desc"><p>Our training rooms, also available for rent, are well equipped with sophisticated kitchen tools and also multimedia resources to set up an effective learning environment</p></div>
+						<div class="desc"><?php echo $queried_post->post_content;?></div>
 						<div class="more"><a href="<?php echo get_permalink( get_page_by_path( 'facilities' ) ); ?>">VIEW FACILITIES</a></div>
 					</div>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 

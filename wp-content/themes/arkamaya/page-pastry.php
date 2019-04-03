@@ -201,7 +201,7 @@ get_header();
 				<?php endwhile;wp_reset_query();?>
 			</div>
 			<div class="row">
-				<div class="more"><a href="#">VIEW OUR ACADEMIC PROGRAMS</a></div>
+				<div class="more"><a href="<?php echo get_page_permalink_from_name('academy'); ?>">VIEW OUR ACADEMIC PROGRAMS</a></div>
 			</div>
 		</div>
 	</div>

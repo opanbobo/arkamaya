@@ -28,16 +28,24 @@ get_header();
             <div id="list-program">
                 <div class="container">
                     <div class="row">
+                        <?php
+                            $post_id = 320;
+                            $queried_post = get_post($post_id);
+                        ?>
                         <div class="col-md-6 col-12">
-                            <div class="img"><img src="<?php bloginfo('template_url');?>/img/img-academy.jpg" alt="" class="img-fluid"></div>
+                            <div class="img"><?php echo get_the_post_thumbnail($post_id, '', array('class' => 'img-fluid'))?></div>
                             <div class="title-block">COOKING PROGRAM</div>
-                            <div class="shortdesc">Arkamaya Cooking Program is here to offer a unique way to learn about cooking, where students would not only graduate as a chef, but also a creative entrepreneur in the food industry.</div>
+                            <div class="shortdesc"><?php echo $queried_post->post_content;?></div>
                             <div class="detail"><a href="<?php echo get_permalink( get_page_by_path( 'academy/cooking program' ) ); ?>">VIEW DETAILS</a></div>
                         </div>
+                        <?php
+                            $post_id = 323;
+                            $queried_post = get_post($post_id);
+                        ?>
                         <div class="col-md-6 col-12">
-                            <div class="img"><img src="<?php bloginfo('template_url');?>/img/img-academy-2.jpg" alt="" class="img-fluid"></div>
+                            <div class="img"><?php echo get_the_post_thumbnail($post_id, '', array('class' => 'img-fluid'))?></div>
                             <div class="title-block">BAKING PROGRAM</div>
-                            <div class="shortdesc">Arkamaya Pastry Program is not all about forming a professional, but also adding some other important components to create a soulful and creative baker.</div>
+                            <div class="shortdesc"><?php echo $queried_post->post_content;?></div>
                             <div class="detail"><a href="<?php echo get_permalink( get_page_by_path( 'academy/pastry program' ) ); ?>">VIEW DETAILS</a></div>
                         </div>
                     </div>
@@ -111,50 +119,34 @@ get_header();
                 <div class="container">
                     <h1 class="title-section">Stories from <strong>our students</strong></h1>
                     <div class="stories-slider slider">
-                            <div class="block">
-                               <div class="row">
-                                    <div class="col-md-4 col-12">
-                                        <div class="img"><img src="<?php bloginfo('template_url');?>/img/home-student.png" alt="" class="img-fluid"></div>
-                                    </div>
-                                    <div class="col-md-8 col-12">
-                                        <div class="name">Sadira, pastry Class</div>
-                                        <div class="desc">
-                                            <p>“Pengalaman saya setelah belajar di Arkamaya, saya seneng jd tau banyak berbagai macam pastry, teknik pembuatannya, dan juga saya mendapatkan informasi informasi yg saya belum tau sebelumnya dari chef nya langsung dan itu sangat membantu”</p>
+                            <?php
+                                $args = array( 'post_type' => 'stories');
+                                $loop = new WP_Query( $args );
+
+                                while ( $loop->have_posts() ) : $loop->the_post();?>
+                                <div class="block">
+                                   <div class="row">
+                                        <div class="col-md-4 col-12">
+                                            <div class="img"><?php the_post_thumbnail('', array('class' => 'img-fluid'))?></div>
                                         </div>
-                                    </div>
-                               </div>
-                            </div>
-                            <div class="block">
-                               <div class="row">
-                                    <div class="col-md-4 col-12">
-                                        <div class="img"><img src="<?php bloginfo('template_url');?>/img/home-student.png" alt="" class="img-fluid"></div>
-                                    </div>
-                                    <div class="col-md-8 col-12">
-                                        <div class="name">Sadira, pastry Class</div>
-                                        <div class="desc">
-                                            <p>“Pengalaman saya setelah belajar di Arkamaya, saya seneng jd tau banyak berbagai macam pastry, teknik pembuatannya, dan juga saya mendapatkan informasi informasi yg saya belum tau sebelumnya dari chef nya langsung dan itu sangat membantu”</p>
+                                        <div class="col-md-8 col-12">
+                                            <div class="name"><?php the_title();?></div>
+                                            <div class="desc">
+                                                <?php the_content();?>
+                                            </div>
                                         </div>
-                                    </div>
-                               </div>
-                            </div>
-                            <div class="block">
-                               <div class="row">
-                                    <div class="col-md-4 col-12">
-                                        <div class="img"><img src="<?php bloginfo('template_url');?>/img/home-student.png" alt="" class="img-fluid"></div>
-                                    </div>
-                                    <div class="col-md-8 col-12">
-                                        <div class="name">Sadira, pastry Class</div>
-                                        <div class="desc">
-                                            <p>“Pengalaman saya setelah belajar di Arkamaya, saya seneng jd tau banyak berbagai macam pastry, teknik pembuatannya, dan juga saya mendapatkan informasi informasi yg saya belum tau sebelumnya dari chef nya langsung dan itu sangat membantu”</p>
-                                        </div>
-                                    </div>
-                               </div>
-                            </div>
+                                   </div>
+                                </div>
+                            <?php endwhile;?>
                     </div>
                 </div>
             </div>
             <div id="taste-wrapper">
-                <div class="img"><img src="<?php bloginfo('template_url');?>/img/bg-man-academy-2.png" alt="" class="img-fluid"></div>
+                <?php
+                    $post_id = 316;
+                    $queried_post = get_post($post_id);
+                ?>
+                <div class="img"><?php echo get_the_post_thumbnail($post_id, '', array('class' => 'img-fluid'))?></div>
                 <div class="column">
                     <div class="container">
                         <div class="row">
@@ -162,7 +154,7 @@ get_header();
                                 <div class="txt">INTERNSHIP PROGRAM</div>
                                 <h1 class="title"><strong>A taste of the</strong> real world</h1>
                                 <div class="desc">
-                                    <p>Sign up for our basic or intermediate program and get a very special internship program at a well renowed Ismaya restaurant. Hurry, limited spots available!</p>
+                                    <?php echo $queried_post->post_content;?>
                                 </div>
                                 <div class="more"><a href="<?php echo get_permalink( get_page_by_path( 'academy/internship program' ) ); ?>">find out more</a></div>
                             </div>
